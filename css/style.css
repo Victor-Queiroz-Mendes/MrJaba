@@ -910,11 +910,17 @@ footer {
 /* RESPONSIVO */
 @media (max-width: 768px) {
     .navbar {
-        flex-wrap: wrap;
+        gap: 15px;
+        padding: 15px 10px;
     }
 
     .menu-toggle {
         display: flex;
+    }
+
+    .logo {
+        max-width: 100px;
+        height: 50px;
     }
 
     .navbar-cart {
@@ -926,22 +932,43 @@ footer {
         display: flex;
         flex-direction: column;
         position: fixed;
-        top: 60px;
-        left: -100%;
-        right: 0;
+        top: 0;
+        left: -300px;
+        bottom: 0;
         background: var(--dark);
-        padding: 20px;
-        gap: 15px;
-        width: 100%;
+        padding: 80px 30px 20px 30px;
+        gap: 20px;
+        width: 300px;
         z-index: 999;
-        transition: left 0.3s ease;
-        max-height: calc(100vh - 60px);
+        transition: left 0.4s ease;
+        max-height: 100vh;
         overflow-y: auto;
-        border-bottom: 2px solid var(--primary);
+        border-right: 3px solid var(--primary);
+        box-shadow: 2px 0 15px rgba(0, 0, 0, 0.8);
     }
 
     .nav-menu.active {
         left: 0;
+    }
+
+    .nav-menu li {
+        list-style: none;
+    }
+
+    .nav-menu a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.1em;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border);
+        transition: color 0.3s;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+        color: var(--primary);
     }
 
     .hero-content h2 {
@@ -1026,5 +1053,25 @@ footer {
 
     .menu-toggle.active span:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Overlay quando menu está aberto */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+        z-index: 998;
+    }
+
+    body.menu-open::before {
+        opacity: 1;
+        visibility: visible;
     }
 }

@@ -246,6 +246,7 @@ const app = {
       menuToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
         menuToggle.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
       });
     }
     
@@ -256,7 +257,20 @@ const app = {
         link.addEventListener('click', () => {
           navMenu.classList.remove('active');
           if (menuToggle) menuToggle.classList.remove('active');
+          document.body.classList.remove('menu-open');
         });
+      });
+    }
+
+    // Fechar menu ao clicar no overlay
+    const overlay = document.querySelector('body::before');
+    if (document.body) {
+      document.body.addEventListener('click', (e) => {
+        if (e.target === document.body && document.body.classList.contains('menu-open')) {
+          if (navMenu) navMenu.classList.remove('active');
+          if (menuToggle) menuToggle.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        }
       });
     }
 
