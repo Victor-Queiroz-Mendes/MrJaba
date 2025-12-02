@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Mr. Jaba</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #1a1a1a;
+      color: #fff;
+      padding: 20px;
+    }
+
+    .admin-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .admin-header {
+      background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+      padding: 30px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .admin-header h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .admin-header p {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    .admin-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #333;
+      padding-bottom: 10px;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      color: #999;
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn:hover {
+      color: #FF6B35;
+    }
+
+    .tab-btn.active {
+      color: #FF6B35;
+      border-bottom-color: #FF6B35;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .section {
+      background: #2a2a2a;
+      padding: 30px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .section h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .upload-area {
+      border: 3px dashed #FF6B35;
+      border-radius: 10px;
+      padding: 40px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: #1a1a1a;
+    }
+
+    .upload-area:hover {
+      background: #252525;
+      border-color: #FF8C42;
+    }
+
+    .upload-area.drag-over {
+      background: #FF6B35;
+      color: #1a1a1a;
+    }
+
+    .upload-icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .upload-text {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .upload-subtext {
+      font-size: 14px;
+      color: #999;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .btn {
+      background: #FF6B35;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 15px;
+    }
+
+    .btn:hover {
+      background: #FF8C42;
+    }
+
+    .btn:active {
+      opacity: 0.8;
+    }
+
+    .btn-danger {
+      background: #ff4444;
+    }
+
+    .btn-danger:hover {
+      background: #ff6666;
+    }
+
+    .preview-container {
+      margin-top: 20px;
+    }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .preview-item {
+      background: #1a1a1a;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 1;
+    }
+
+    .preview-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .preview-item .remove-btn {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: #ff4444;
+      border: none;
+      color: #fff;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .product-list {
+      display: grid;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .product-item {
+      background: #1a1a1a;
+      padding: 15px;
+      border-radius: 8px;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .product-item img {
+      width: 80px;
+      height: 80px;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    .product-item-info {
+      flex: 1;
+    }
+
+    .product-item-name {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .product-item-id {
+      font-size: 12px;
+      color: #999;
+    }
+
+    .upload-input-container {
+      margin-bottom: 15px;
+    }
+
+    .upload-input-container label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .upload-input-container input,
+    .upload-input-container select {
+      width: 100%;
+      padding: 12px;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .upload-input-container input:focus,
+    .upload-input-container select:focus {
+      outline: none;
+      border-color: #FF6B35;
+    }
+
+    .status-message {
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      display: none;
+    }
+
+    .status-message.success {
+      background: #4CAF50;
+      color: #fff;
+      display: block;
+    }
+
+    .status-message.error {
+      background: #f44336;
+      color: #fff;
+      display: block;
+    }
+
+    .back-btn {
+      background: #333;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 20px;
+      transition: background 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <a href="index.html" class="back-btn">← Voltar</a>
+
+    <div class="admin-header">
+      <h1>🍔 Admin - Mr. Jaba</h1>
+      <p>Gerenciamento de Imagens - Salto, SP</p>
+    </div>
+
+    <div class="admin-tabs">
+      <button class="tab-btn active" onclick="switchTab('logo')">Logo</button>
+      <button class="tab-btn" onclick="switchTab('products')">Produtos</button>
+      <button class="tab-btn" onclick="switchTab('gallery')">Galeria</button>
+    </div>
+
+    <!-- LOGO TAB -->
+    <div id="logo" class="tab-content active">
+      <div class="section">
+        <h2>Logo da Loja</h2>
+        <div class="status-message" id="logoStatus"></div>
+
+        <div class="upload-area" onclick="document.getElementById('logoInput').click()">
+          <div class="upload-icon">🖼️</div>
+          <div class="upload-text">Clique para fazer upload da logo</div>
+          <div class="upload-subtext">PNG, JPG ou GIF (máx. 5MB)</div>
+        </div>
+
+        <input type="file" id="logoInput" accept="image/*" onchange="handleLogoUpload(event)">
+
+        <div class="preview-container" id="logoPreview"></div>
+      </div>
+    </div>
+
+    <!-- PRODUCTS TAB -->
+    <div id="products" class="tab-content">
+      <div class="section">
+        <h2>Upload de Imagens de Produtos</h2>
+        <div class="status-message" id="productStatus"></div>
+
+        <div class="upload-input-container">
+          <label for="productSelect">Selecione o Produto:</label>
+          <select id="productSelect">
+            <option value="">-- Escolha um produto --</option>
+          </select>
+        </div>
+
+        <div class="upload-area" onclick="document.getElementById('productInput').click()">
+          <div class="upload-icon">📸</div>
+          <div class="upload-text">Clique para fazer upload da imagem do produto</div>
+          <div class="upload-subtext">PNG, JPG ou GIF (máx. 5MB)</div>
+        </div>
+
+        <input type="file" id="productInput" accept="image/*" onchange="handleProductUpload(event)">
+
+        <button class="btn" onclick="saveProductImage()">Salvar Imagem</button>
+      </div>
+
+      <div class="section">
+        <h2>Produtos com Imagens</h2>
+        <div id="productsGallery" class="product-list"></div>
+      </div>
+    </div>
+
+    <!-- GALLERY TAB -->
+    <div id="gallery" class="tab-content">
+      <div class="section">
+        <h2>Galeria Completa</h2>
+        
+        <div class="upload-input-container">
+          <label for="categoryFilter">Filtrar por Categoria:</label>
+          <select id="categoryFilter" onchange="filterGallery()">
+            <option value="">Todas</option>
+          </select>
+        </div>
+
+        <div class="preview-grid" id="galleryGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
