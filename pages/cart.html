@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - Mr.Jaba</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo/logo.png" alt="Mr.Jaba Logo" class="logo-img">
+            </a>
+            <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="menu.html">Cardápio</a></li>
+                <li><a href="about.html">Sobre</a></li>
+                <li><a href="cart.html" class="cart-link active">🛒 <span class="cart-count" id="cartCount">0</span></a></li>
+                <li><a href="login.html" id="loginBtn">Entrar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="cart-page">
+        <h1>Seu Carrinho</h1>
+        
+        <div class="cart-content">
+            <div id="cartContainer" class="cart-items">
+                <!-- Itens do carrinho -->
+            </div>
+
+            <div class="cart-summary">
+                <h3>Resumo do Pedido</h3>
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">R$ 0,00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Taxa (10%):</span>
+                    <span id="tax">R$ 0,00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="total">R$ 0,00</span>
+                </div>
+                <button id="checkoutBtn" class="btn-primary" onclick="handleCheckout()">Finalizar Pedido</button>
+                <a href="menu.html" class="btn-secondary">Continuar Comprando</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mr.Jaba - Todos os direitos reservados</p>
+    </footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/cart.js"></script>
+    <script>
+        function renderCart() {
+            const cartItems = cart.getCart();
+            const container = document.getElementById('cartContainer');
+            
+            if (cartItems.length === 0) {
+                container.innerHTML = '<p class="empty-cart">Seu carrinho está vazio 🛒</p>';
+                document.getElementById('checkoutBtn').disabled = true;
+                return;
+            }
+
+            container.innerHTML = cartItems.map(item => `
+                <div class="cart-item">
+                    <div class="item-info">
+                        <span class="item-emoji">${item.emoji}</span>
+                        <div class="item-details">
+                            <h4>${item.name}</h4>
+                            ${item.notes ? `<p class="item-notes">Obs: ${item.notes}</p>` : ''}
+                            <p>R$ ${item.price.toFixed(2)}</p>
+                        </div>
+                    </div>
+                    <div class="item-controls">
+                        <button class="qty-btn" onclick="updateQty(${item.id}, ${item.quantity - 1})">-</button>
+                        <span class="qty">${item.quantity}</span>
+                        <button class="qty-btn" onclick="updateQty(${item.id}, ${item.quantity + 1})">+</button>
+                        <button class="btn-remove" onclick="removeItem(${item.id})">✕</button>
+                    </div>
+                </div>
+            `).join('');
+
+            updateSummary();
+            document.getElementById('checkoutBtn').disabled = false;
+        }
+
+        function updateSummary() {
+            const cartItems = cart.getCart();
+            const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const tax = subtotal * 0.10;
+            const total = subtotal + tax;
+
+            document.getElementById('subtotal').textContent = `R$ ${subtotal.toFixed(2)}`;
+            document.getElementById('tax').textContent = `R$ ${tax.toFixed(2)}`;
+            document.getElementById('total').textContent = `R$ ${total.toFixed(2)}`;
+        }
+
+        function updateQty(itemId, newQty) {
+            if (newQty < 1) {
+                removeItem(itemId);
+                return;
+            }
+            cart.updateQuantity(itemId, newQty);
+            renderCart();
+            updateCartCount();
+        }
+
+        function removeItem(itemId) {
+            cart.removeItem(itemId);
+            renderCart();
+            updateCartCount();
+        }
+
+        function handleCheckout() {
+            const user = JSON.parse(localStorage.getItem('mrjabaUser'));
+            if (!user) {
+                alert('Por favor, faça login para continuar');
+                window.location.href = 'login.html';
+                return;
+            }
+
+            const order = {
+                id: 'PED-' + Date.now(),
+                user: user.email,
+                items: cart.getCart(),
+                total: document.getElementById('total').textContent,
+                date: new Date().toLocaleString('pt-BR'),
+                status: 'Pedido Realizado'
+            };
+
+            localStorage.setItem('lastOrder', JSON.stringify(order));
+            alert('✓ Pedido finalizado com sucesso!\\nNúmero: ' + order.id);
+            cart.clearCart();
+            renderCart();
+            updateCartCount();
+            window.location.href = 'menu.html';
+        }
+
+        function updateCartCount() {
+            document.getElementById('cartCount').textContent = cart.getItemCount();
+        }
+
+        renderCart();
+        setInterval(updateCartCount, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+📁 GUIA COMPLETO PARA ADICIONAR IMAGENS
+===========================================
+
+Você tem duas pastas onde adicionar imagens:
+  1. /images/products/  ← Fotos dos PRODUTOS
+  2. /images/logo/      ← LOGO da hamburgueria
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📸 PASTA: /images/products/
+
+BURGER 180G (16 imagens):
+  ✓ burger_1.jpg   → Cheese Burguer
+  ✓ burger_2.jpg   → Salada Burguer
+  ✓ burger_3.jpg   → Pork Burguer
+  ✓ burger_4.jpg   → Chicken House
+  ✓ burger_5.jpg   → Texas Burguer
+  ✓ burger_6.jpg   → Mexicano
+  ✓ burger_7.jpg   → Mineiro
+  ✓ burger_8.jpg   → O Bravo
+  ✓ burger_9.jpg   → Monster Bacon
+  ✓ burger_10.jpg  → Bacon
+  ✓ burger_11.jpg  → Mega Cheese
+  ✓ burger_12.jpg  → Cheddar
+  ✓ burger_13.jpg  → Casal Perfeito
+  ✓ burger_14.jpg  → Egg Burguer
+  ✓ burger_15.jpg  → Mega Monster
+  ✓ burger_16.jpg  → Pulled Pork (Lanche)
+
+BURGER 90G (9 imagens):
+  ✓ burger_17.jpg  → Cheesinho
+  ✓ burger_18.jpg  → Saladinha
+  ✓ burger_19.jpg  → Texinha
+  ✓ burger_20.jpg  → Chedinho
+  ✓ burger_21.jpg  → Mineirinho
+  ✓ burger_22.jpg  → Mexicaninho
+  ✓ burger_23.jpg  → Chiquito
+  ✓ burger_24.jpg  → Baconzinho
+  ✓ burger_25.jpg  → Monstrinho
+
+DOG'S (2 imagens):
+  ✓ dog_1.jpg      → Dog
+  ✓ dog_2.jpg      → Perrito
+
+PORÇÕES (10 imagens):
+  ✓ porcoes_1.jpg  → Fritas Grande
+  ✓ porcoes_2.jpg  → Fritas + Bacon
+  ✓ porcoes_3.jpg  → Fritas + Pulled Pork
+  ✓ porcoes_4.jpg  → Fritas Pequena
+  ✓ porcoes_5.jpg  → Mandioca Frita + Bacon
+  ✓ porcoes_6.jpg  → Mandioca Frita
+  ✓ porcoes_7.jpg  → Mandioca Frita + Pulled Pork
+  ✓ porcoes_8.jpg  → Nossa Batata
+  ✓ porcoes_9.jpg  → Frãguetz
+  ✓ porcoes_10.jpg → Onions Rings
+
+MOLHOS (3 imagens):
+  ✓ molhos_1.jpg   → Potinho de Maionese da Casa 30 ML
+  ✓ molhos_2.jpg   → Potinho de BBQ de Goiaba 30 ML
+  ✓ molhos_3.jpg   → Potinho de Mostarda com Mel 30 ML
+
+DOCES (2 imagens):
+  ✓ doces_1.jpg    → Pastel de Nutella
+  ✓ doces_2.jpg    → Pipoking
+
+BEBIDAS (6 imagens):
+  ✓ bebidas_1.jpg  → Água sem gás 500ml
+  ✓ bebidas_2.jpg  → Água com gás 500ml
+  ✓ bebidas_3.jpg  → Surfrutos Maracujá 300ml
+  ✓ bebidas_4.jpg  → Surfrutos Acerola 300ml
+  ✓ bebidas_5.jpg  → Surfrutos Goiaba 300ml
+  ✓ bebidas_6.jpg  → Suco Del Valle Uva 290ml
+
+REFRIGERANTES (18 imagens):
+  ✓ refrigerante_1.jpg  → Coca-Cola Lata 350ml
+  ✓ refrigerante_2.jpg  → Coca-Cola Zero Lata 350ml
+  ✓ refrigerante_3.jpg  → Guaraná Antarctica Lata 350ml
+  ✓ refrigerante_4.jpg  → Sprite Lata 350ml
+  ✓ refrigerante_5.jpg  → Fanta Laranja Lata 350ml
+  ✓ refrigerante_6.jpg  → Fanta Uva Lata 350ml
+  ✓ refrigerante_7.jpg  → Schweppes Citrus Lata 350ml
+  ✓ refrigerante_8.jpg  → Schweppes Tônica Lata 350ml
+  ✓ refrigerante_9.jpg  → Red Bull 250ml
+  ✓ refrigerante_10.jpg → H2O Limoneto 500ml
+  ✓ refrigerante_11.jpg → Itubaína Longe Neck 355ml
+  ✓ refrigerante_12.jpg → Coca-Cola Zero 600ml
+  ✓ refrigerante_13.jpg → Coca-Cola 2L
+  ✓ refrigerante_14.jpg → Coca Cola Zero 2L
+  ✓ refrigerante_15.jpg → Guaraná Antarctica 2L
+  ✓ refrigerante_16.jpg → Sprite 2L
+  ✓ refrigerante_17.jpg → Fanta Laranja 2L
+  ✓ refrigerante_18.jpg → Fanta Uva 2L
+
+CERVEJA (4 imagens):
+  ✓ cerveja_1.jpg  → Heineken LN 330ml
+  ✓ cerveja_2.jpg  → Heineken LN 0% 330ml
+  ✓ cerveja_3.jpg  → Smirnoff Ice 275ml
+  ✓ cerveja_4.jpg  → Draft 600ml
+
+CHOPP (6 imagens):
+  ✓ chopp_1.jpg    → Pilsen 500ml
+  ✓ chopp_2.jpg    → Pilsen 300ml
+  ✓ chopp_3.jpg    → IPA 500ml
+  ✓ chopp_4.jpg    → IPA 300ml
+  ✓ chopp_5.jpg    → Black 500ml
+  ✓                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    → Black 300ml
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🏪 PASTA: /images/logo/
+
+Adicione a logo da hamburgueria com um desses nomes:
+  ✓ logo.png      (Recomendado)
+  ✓ logo.jpg
+  ✓ mr-jaba-logo.png
+
+Formato ideal:
+  • Quadrada (500x500px)
+  • PNG ou JPG
+  • Sem fundo ou com fundo transparente
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 DICAS:
+
+1. ONDE PEGAR FOTOS?
+   • Tire fotos dos seus produtos
+   • Use ferramentas como Canva para editar
+   • Use IA para gerar imagens (se necessário)
+
+2. TAMANHO DAS IMAGENS
+   • Produtos: Mínimo 400x400px
+   • Logo: Mínimo 300x300px
+   • Máximo: 2MB por imagem
+
+3. FORMATOS
+   • Prefira JPG para produtos (mais leve)
+   • PNG com fundo transparente para logo
+   • Mantenha a qualidade alta
+
+4. NOMES CORRETOS
+   • Use exatamente os nomes indicados
+   • Use letras minúsculas
+   • Sem acentos
+   • Use underscore (_) ao invés de hífen
+
+5. EXEMPLO DE ESTRUTURA:
+   /images
+   ├── /products
+   │   ├── burger_1.jpg
+   │   ├── burger_2.jpg
+   │   └── ... (até burger_25.jpg)
+   └── /logo
+       └── logo.png
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ TOTAL DE IMAGENS NECESSÁRIAS: 76
+   • 76 produtos = 76 imagens
+   • 1 logo = 1 imagem
+   • TOTAL: 77 imagens
+
+⚠️ ATENÇÃO:
+   Se não adicionar as imagens, o site mostrará EMOJIS
+   no lugar (que também funciona bem como placeholder!)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 COMO USAR:
+
+1. Abra seu navegador e acesse: http://localhost:8000
+2. O site funciona perfeitamente com ou sem imagens
+3. As imagens aparecem assim que você adiciona os arquivos
+4. Não é preciso reiniciar nada!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
