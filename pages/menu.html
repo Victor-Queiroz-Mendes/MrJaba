@@ -97,7 +97,7 @@
                 const filtered = category === 'all' ? products : products.filter(p => p.category === category);
                 container.innerHTML = filtered.map(product => `
                     <div class="product-card">
-                        <div class="product-image"><img src="images/products/${product.image}" alt="${product.name}" onerror="this.style.display='none'; this.parentElement.innerHTML += '<span class=emoji>${product.emoji}</span>'"><span class="price">R$ ${product.price.toFixed(2)}</span></div>
+                        <div class="product-image"><img src="../images/products/${product.image}" alt="${product.name}" onerror="this.style.display='none'; this.parentElement.innerHTML += '<span class=emoji>${product.emoji}</span>'"><span class="price">R$ ${product.price.toFixed(2)}</span></div>
                         <h3>${product.name}</h3>
                         <p class="description">${product.description}</p>
                         <div class="product-footer"><span class="rating">⭐ ${product.rating}</span><button class="btn-add" onclick="app.openProductModal(${product.id})">Adicionar</button></div>
