@@ -48,6 +48,11 @@ main {
     z-index: 1000;
 }
 
+/* Esconder navbar na página de login */
+.header-hidden {
+    display: none;
+}
+
 .logo {
     display: flex;
     align-items: center;
